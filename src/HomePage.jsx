@@ -8,7 +8,7 @@ export function HomePage() {
         <>
         <Header />
 
-        <div id="portfolio" name="portfolio" className="bg-[url('our-portfolio.jpg')] bg-cover bg-no-repeat bg-center h-full w-full">
+        <div id="portfolio" name="portfolio" className="bg-[url('/our-portfolio.jpg')] bg-cover bg-no-repeat bg-center h-full w-full">
             <div className="flex flex-col items-center pt-20 pb-10 gap-10 mx-20">
                 <div className="flex flex-col items-center gap-2">
                     <h1 className="text-5xl font-semibold">OUR PORTFOLIO</h1>
@@ -105,7 +105,7 @@ export function HomePage() {
             </div>
             <img src="our-services.png" className="pt-10" />
         </div>
-        <div id="team" name="team" className="flex flex-col items-center text-center gap-12 bg-[url('meet-the-team.png')] bg-no-repeat bg-center bg-cover py-16">
+        <div id="team" name="team" className="flex flex-col items-center text-center gap-12 bg-[url('/meet-the-team.png')] bg-no-repeat bg-center bg-cover py-16">
             <div className="flex flex-col items-center gap-2">
                 <h2 className="text-5xl font-semibold text-white">MEET THE TEAM</h2>
                 <p className="text-gray-400 text-xl">This is Photoshop's version of Lorem Ipsum. Proin gravida</p>
