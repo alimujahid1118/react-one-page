@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active-nav {
+    background-color: #2bb6b6;
+    color: white;
+    transform: skewX(-15deg);
+}
+
+.active-nav .nav-text {
+    display: inline-block;
+    transform: skewX(15deg);
+    color: white;
+}
