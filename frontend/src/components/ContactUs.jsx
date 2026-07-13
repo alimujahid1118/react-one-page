@@ -1,4 +1,39 @@
+import { useState } from "react"
+import axios from "axios"
+
 export function ContactUs () {
+
+    const [formData, setFormData] = useState({
+        "name" : "",
+        "email" : "",
+        "website" : "",
+        "message" : ""
+    })
+
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name] : value
+        }))
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post("http://localhost:8000/api/contact-us/", formData)
+            setFormData({
+                "name" : "",
+                "email" : "",
+                "website" : "",
+                "message" : ""
+            })
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
     return(
         <div id="contactus" className="bg-zinc-800 flex flex-col items-center text-center gap-10 py-20">
             <div className="text-white flex flex-col gap-2">
@@ -26,33 +61,33 @@ export function ContactUs () {
                         </div>
                     </div>
                 </div>
-                <div className="w-1/2 flex flex-row gap-4">
+                <form onSubmit={handleSubmit} className="w-1/2 flex flex-row gap-4">
                     <div className="flex flex-col gap-3">
                         <div className="flex flex-row">
                             <div className="bg-white px-4 py-4 border-gray-300 border-r-[1px]">
                                 <i className="fi fi-rr-user px-2 py-1 w-6 rounded-full border-[1px] border-black"></i>
                             </div>
-                            <input type="text" placeholder="Name" className="pl-3" />
+                            <input name="name" value={formData.name} onChange={handleChange} type="text" placeholder="Name" className="pl-3" />
                         </div>
                         <div className="flex flex-row">
                             <div className="bg-white px-4 py-4 border-gray-300 border-r-[1px]">
                                 <i className="fi fi-rr-user px-2 py-1 w-6 rounded-full border-[1px] border-black"></i>
                             </div>
-                            <input type="text" placeholder="e-mail" className="pl-3" />
+                            <input name="email" value={formData.email} onChange={handleChange} type="text" placeholder="e-mail" className="pl-3" />
                         </div>
                         <div className="flex flex-row">
                             <div className="bg-white px-4 py-4 border-gray-300 border-r-[1px]">
                                 <i className="fi fi-rr-user px-2 py-1 w-6 rounded-full border-[1px] border-black"></i>
                             </div>
-                            <input type="text" placeholder="website" className="pl-3" />
+                            <input name="website" value={formData.website} onChange={handleChange} type="text" placeholder="website" className="pl-3" />
                         </div>
                     </div>
                     <div className="flex flex-col gap-3 w-full">
-                        <textarea placeholder="Message" className="h-32 pt-4 pl-4"></textarea>
-                        <button className="bg-[#2bb6b6] text-white py-[14px] px-4 rounded hover:bg-[#229393] transition duration-300">SEND MESSAGE</button>
+                        <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Message" className="h-32 pt-4 pl-4"></textarea>
+                        <button type="submit" className="bg-[#2bb6b6] text-white py-[14px] px-4 rounded hover:bg-[#229393] transition duration-300">SEND MESSAGE</button>
                     </div>
                     
-                </div>
+                </form>
             </div>
         </div>
     ) 
