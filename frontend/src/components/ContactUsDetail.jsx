@@ -10,16 +10,15 @@ export function ContactUsDetail () {
     const [form, setForm] = useState([])
 
     useEffect(() => {
-        try {
             const getForm = async () => {
+                try {
                 const response = await axios.get(`${backend_url}/api/contact-us-info`)
                 setForm(response.data)
-            }
-
-            getForm()
-        } catch (err) {
+            } catch (err) {
             console.log(err)
+            } 
         }
+        getForm()
     }, [])
     
     return (

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 
-const backend_url = import.meta.env.VITE_BACKEND_URL
+const backend_url = import.meta.env.VITE_BACKEND_URL || "https://react-one-page.onrender.com"
 
 export function ContactUs() {
     const [formData, setFormData] = useState({
