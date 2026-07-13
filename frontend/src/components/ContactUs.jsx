@@ -1,6 +1,8 @@
 import { useState } from "react"
 import axios from "axios"
 
+const backend_url = import.meta.env.VITE_BACKEND_URL
+
 export function ContactUs() {
     const [formData, setFormData] = useState({
         name: "",
@@ -21,7 +23,7 @@ export function ContactUs() {
         e.preventDefault()
 
         try {
-            const response = await axios.post("http://localhost:8000/api/contact-us/", formData)
+            const response = await axios.post(`${backend_url}/api/contact-us`, formData)
             setFormData(response.data)
             setFormData({
                 name: "",

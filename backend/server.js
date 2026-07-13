@@ -2,9 +2,12 @@ import express from "express"
 import { database } from "./config/database.js"
 import formRoutes from "./routes/formRoutes.js"
 import cors from "cors"
+import dotenv from "dotenv"
+
+dotenv.config()
 
 const app = express()
-const port = 8000
+const port = process.env.PORT || 8000;
 
 database()
 

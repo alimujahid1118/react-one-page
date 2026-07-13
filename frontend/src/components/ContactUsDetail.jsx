@@ -3,6 +3,8 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import axios from "axios"
 
+const backend_url = import.meta.env.VITE_BACKEND_URL
+
 export function ContactUsDetail () {
 
     const [form, setForm] = useState([])
@@ -10,7 +12,7 @@ export function ContactUsDetail () {
     useEffect(() => {
         try {
             const getForm = async () => {
-                const response = await axios.get("http://localhost:8000/api/contact-us-info")
+                const response = await axios.get(`${backend_url}/api/contact-us-info`)
                 setForm(response.data)
             }
 
