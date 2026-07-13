@@ -1,10 +1,10 @@
 import mongoose from "mongoose"
 
-const userSchema = new mongoose.Schema({
+const formSchema = new mongoose.Schema({
     name: String,
     email: String,
     website: String,
     message: String
 })
 
-export const User = mongoose.model("User", userSchema)
+export const Form = mongoose.model("Form", formSchema)

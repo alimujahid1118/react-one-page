@@ -21,13 +21,15 @@ export function ContactUs() {
         e.preventDefault()
 
         try {
-            await axios.post("http://localhost:8000/api/contact-us/", formData)
+            const response = await axios.post("http://localhost:8000/api/contact-us/", formData)
+            setFormData(response.data)
             setFormData({
                 name: "",
                 email: "",
                 website: "",
                 message: "",
             })
+
         } catch (err) {
             console.log(err)
         }
